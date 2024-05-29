@@ -23,8 +23,8 @@ async def fetch_messages():
         async for message in client.iter_messages(CHANNEL_USERNAME, limit=15):
             if message.message:
                 new_messages.append(message.message)
-        new_messages.reverse()  # To get the messages in chronological order
-        messages[:] = new_messages  # Update the global messages list
+        new_messages.reverse() 
+        messages[:] = new_messages 
         print(f"Fetched {len(messages)} messages.")
     except Exception as e:
         print("Error fetching messages:", e)
@@ -79,7 +79,7 @@ if __name__ == '__main__':
     telegram_thread.start()
 
     #auto-refresh function thread:
-    refresh_thread = threading.Thread(target=auto_refresh, args=(30,))  # Refresh every 30 seconds
+    refresh_thread = threading.Thread(target=auto_refresh, args=(30,))
     refresh_thread.start()
 
     #run the app
